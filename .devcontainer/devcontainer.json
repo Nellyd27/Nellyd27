@@ -1,0 +1,16 @@
+{
+    "name": "Bug Hunting Environment",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "VARIANT": "ubuntu-20.04"
+        }
+    },
+    "extensions": [
+        "ms-vscode.cpptools",
+        "ms-python.python",
+        "ms-azuretools.vscode-docker"
+    ],
+    "postCreateCommand": "sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y nmap zaproxy nikto sqlmap metasploit-framework wpscan recon-ng sublist3r amass golang && go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest && go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest && go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest && go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest",
+    "remoteUser": "vscode"
+}
